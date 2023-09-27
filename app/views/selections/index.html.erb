@@ -1,0 +1,7 @@
+<h1 class="font-bold text-6xl"> Selection </h1>
+
+<% if @places.any? %>
+  <%= render "places", places: @places %>
+<% else %>
+  <%= link_to "Create a list of restaurants", user_places_path(user_id: current_user.id), class: "btn mb-3 bg-gray-100" %>
+<% end %>

@@ -1,0 +1,11 @@
+<div id="<%= dom_id restaurant %>" class="block">
+  <span>
+    <%= restaurant.name %>
+    <a href=<%= restaurant.map_link %> class="font-medium text-blue-600 dark:text-blue-500 hover:underline" target="_blank"><%= restaurant.address %></a>
+  </span>
+    <% if current_user && request.original_url.include?('places') %>
+      <div class="inline-block ml-2">
+      <%= button_to "+", user_places_path(user_id: current_user.id, restaurant_id: restaurant.id), method: :post, data: {turbo_frame: "_top"}, class: "btn py-2 ml-2 bg-green-300" %> 
+      </div>
+    <% end %>
+</div>
