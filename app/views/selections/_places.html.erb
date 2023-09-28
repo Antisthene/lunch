@@ -1,0 +1,20 @@
+<table>
+  <thead>
+    <tr>
+      <th>
+        <%= link_to "See the list of restaurants to select", user_places_path(user_id: current_user.id), method: :get, class: "btn mb-3 bg-gray-100" %>
+      </th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% places.each do |place| %>
+      <tr>
+        <td><%= place.restaurant.name %></td>
+        <td><%= place.restaurant.address %></td>
+        <td><%= button_to "Delete", user_place_path(user_id: current_user.id, id: place.id), method: :delete, class: "btn mb-3 bg-red-300" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

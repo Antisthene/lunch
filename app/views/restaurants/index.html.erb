@@ -1,0 +1,9 @@
+<h1 class="font-bold text-6xl">Restaurants</h1>
+
+<div class="mt-4">
+  <%= form_with(url: restaurants_path, method: "GET", data: { turbo_frame: "restaurants" }, class: 'mb-7') do |form| %>
+    <%= form.text_field :query %>
+    <%= form.submit 'Search', name: nil, class: "btn py-2 ml-2 bg-green-300" %>
+  <% end %>
+  <%= render "restaurants", restaurants: @restaurants %>
+</div>
